@@ -14,5 +14,5 @@ echo "## clang-format not installed";
 exit 1;
 fi
 
-# get all .h, .m and .mm files
-find "$BASE_DIR" -type f -name "*.[mh]*" -exec echo '"{}" ' \;
+# get all .h, .m and .mm files and parse code files
+find "$BASE_DIR" -type f -name "*.[mh]*" -exec echo '"{}" ' \; | xargs clang-format -i -style=file
